@@ -268,3 +268,26 @@
   new PureCounter();
 
 })()
+
+
+
+document.getElementById('downloadBtn').addEventListener('click', function () {
+  // Assuming 'sample.pdf' is the name of your PDF file
+  const pdfUrl = 'RESUME.pdf';
+
+  // Creating a link element
+  const link = document.createElement('a');
+  link.href = pdfUrl;
+
+  // Setting the download attribute with the desired file name
+  link.download = 'downloaded_file.pdf';
+
+  // Appending the link to the document
+  document.body.appendChild(link);
+
+  // Triggering the click event to start the download
+  link.click();
+
+  // Removing the link from the document after the download
+  document.body.removeChild(link);
+});
