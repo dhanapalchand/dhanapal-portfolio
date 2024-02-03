@@ -273,7 +273,7 @@
 
 document.getElementById('downloadBtn').addEventListener('click', function () {
   // Assuming 'sample.pdf' is the name of your PDF file
-  const pdfUrl = 'RESUME.pdf';
+  const pdfUrl = 'Dhanapal-C-FlowCV-Resume-20240203 (2).pdf';
 
   // Creating a link element
   const link = document.createElement('a');
