@@ -291,3 +291,39 @@ document.getElementById('downloadBtn').addEventListener('click', function () {
   // Removing the link from the document after the download
   document.body.removeChild(link);
 });
+
+
+
+
+
+document.getElementById('dataForm').addEventListener('submit', async function(event) {
+  event.preventDefault();
+  
+  const formData = new FormData(this);
+  const data = {};
+  
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
+
+  try {
+    const response = await fetch('https://portfolio-conect.onrender.com/create_contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to store data');
+    }
+
+    alert('Massage send successfully');
+    this.reset();
+    // You can redirect to another page or perform any other action after successful storage
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred while storing data');
+  }
+});
