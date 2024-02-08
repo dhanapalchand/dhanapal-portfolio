@@ -5,6 +5,34 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const dataContainer = document.getElementById('dataContainer');
+
+  // Fetch data from API
+  fetch('https://portfolio-conect.onrender.com/contact_details')
+    .then(response => response.json())
+    .then(data => {
+      // Iterate over each data item and create HTML elements
+      data.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('data-item');
+        itemElement.innerHTML = `
+          <h2>${item.name}</h2>
+          <p>${item.email}</p>
+          <p>${item.subject}</p>
+          <p>${item.message}</p>
+        `;
+        dataContainer.appendChild(itemElement);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+      dataContainer.innerHTML = '<p>An error occurred while fetching data</p>';
+    });
+});
+
 (function() {
   "use strict";
 
@@ -327,3 +355,9 @@ document.getElementById('dataForm').addEventListener('submit', async function(ev
     alert('An error occurred while storing data');
   }
 });
+
+
+
+
+
+
