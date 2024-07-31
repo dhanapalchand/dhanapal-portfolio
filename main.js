@@ -9,7 +9,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   const dataContainer = document.getElementById('dataContainer');
-
+   
   // Fetch data from API
   fetch('https://portfolio-conect.onrender.com/contact_details')
     .then(response => response.json())
