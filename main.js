@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
   const dataContainer = document.getElementById('dataContainer');
    
